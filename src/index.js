@@ -7,7 +7,7 @@ import FormGenerator from "./Components/FormGenerator";
 
 ReactDOM.render(
   <React.StrictMode>
-      <div className={"container-sm"}>
+      <div className={"container-lg"}>
           <h1 className={"text-center"}>Generador</h1>
           <hr/>
           <FormGenerator />
