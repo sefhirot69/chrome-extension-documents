@@ -1,5 +1,6 @@
 import React, {useRef, useState} from 'react';
 import generatorDni from "../../Utils/generatorDni";
+import GenerateButton from "../Buttons/GenerateButton";
 
 const IdentityDocumentDni = ( {documentDni} ) => {
 
@@ -11,12 +12,10 @@ const IdentityDocumentDni = ( {documentDni} ) => {
         setDocument(document);
     };
 
-
     return <>
-        <label htmlFor="basic-url" className="form-label">
-            DNI
-        </label>
+
         <div className="input-group mb-3">
+            <span className="input-group-text">DNI</span>
             <input
                 type="text"
                 className="form-control-sm"
@@ -25,13 +24,7 @@ const IdentityDocumentDni = ( {documentDni} ) => {
                 value={document}
                 ref={inputDni}
             />
-            <button
-                className="btn btn-outline-secondary"
-                type="button"
-                onClick={generateDocument}
-            >
-                Generar
-            </button>
+            <GenerateButton callbackOnClick={generateDocument}/>
         </div>
     </>
 
