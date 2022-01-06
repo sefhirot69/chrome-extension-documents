@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import FormGenerator from "./Components/FormGenerator";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <div className={"container-fluid"}>
+          <FormGenerator />
+      </div>
   </React.StrictMode>,
   document.getElementById('root')
 );
