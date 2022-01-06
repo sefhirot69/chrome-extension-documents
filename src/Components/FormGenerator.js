@@ -1,14 +1,18 @@
 import React from 'react';
-import IdentityDocumentDni from "./IdentityDocumentDni";
+import IdentityDocumentDni from "./Documents/IdentityDocumentDni";
 import generatorDni from "../Utils/generatorDni";
+import IdentityDocumentNie from "./Documents/IdentityDocumentNie";
+import generatorNie from "../Utils/generatorNie";
 
 const FormGenerator = () => {
 
-    let document = generatorDni();
+    let documentDni = generatorDni();
+    let documentNie = generatorNie();
 
     return (
         <form>
-            <IdentityDocumentDni documentDni={document}/>
+            <IdentityDocumentDni documentDni={documentDni}/>
+            <IdentityDocumentNie documentNie={documentNie}/>
         </form>
     );
 };
