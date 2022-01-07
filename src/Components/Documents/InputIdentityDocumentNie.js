@@ -2,7 +2,7 @@ import React, {useRef, useState} from 'react';
 import generatorNie from "../../Utils/generatorNie";
 import GenerateButton from "../Buttons/GenerateButton";
 
-const IdentityDocumentNie = ({documentNie}) => {
+const InputIdentityDocumentNie = ({documentNie}) => {
 
     const inputNie = useRef(null);
     const [document, setDocument] = useState(documentNie);
@@ -12,7 +12,7 @@ const IdentityDocumentNie = ({documentNie}) => {
     }
 
     return <>
-        <div className="input-group mb-3">
+        <div className="input-group input-group-sm mb-3">
             <span className="input-group-text">NIE</span>
             <input
                 type="text"
@@ -27,4 +27,4 @@ const IdentityDocumentNie = ({documentNie}) => {
     </>
 };
 
-export default IdentityDocumentNie;
+export default InputIdentityDocumentNie;

@@ -1,18 +1,22 @@
 import React from 'react';
-import IdentityDocumentDni from "./Documents/IdentityDocumentDni";
+import InputIdentityDocumentDni from "./Documents/InputIdentityDocumentDni";
 import generatorDni from "../Utils/generatorDni";
-import IdentityDocumentNie from "./Documents/IdentityDocumentNie";
+import InputIdentityDocumentNie from "./Documents/InputIdentityDocumentNie";
 import generatorNie from "../Utils/generatorNie";
+import InputIban from "./Documents/InputIban";
+import generatorIban from "../Utils/generatorIban";
 
 const FormGenerator = () => {
 
     let documentDni = generatorDni();
     let documentNie = generatorNie();
+    let bankIban = generatorIban();
 
     return (
         <form>
-            <IdentityDocumentDni documentDni={documentDni}/>
-            <IdentityDocumentNie documentNie={documentNie}/>
+            <InputIdentityDocumentDni documentDni={documentDni}/>
+            <InputIdentityDocumentNie documentNie={documentNie}/>
+            <InputIban bankIban={bankIban}/>
         </form>
     );
 };

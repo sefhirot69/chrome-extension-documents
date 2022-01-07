@@ -2,7 +2,7 @@ import React, {useRef, useState} from 'react';
 import generatorDni from "../../Utils/generatorDni";
 import GenerateButton from "../Buttons/GenerateButton";
 
-const IdentityDocumentDni = ( {documentDni} ) => {
+const InputIdentityDocumentDni = ({documentDni} ) => {
 
     const [document, setDocument] = useState(documentDni)
     const inputDni = useRef(documentDni);
@@ -14,7 +14,7 @@ const IdentityDocumentDni = ( {documentDni} ) => {
 
     return <>
 
-        <div className="input-group mb-3">
+        <div className="input-group input-group-sm mb-3">
             <span className="input-group-text">DNI</span>
             <input
                 type="text"
@@ -30,4 +30,4 @@ const IdentityDocumentDni = ( {documentDni} ) => {
 
 };
 
-export default IdentityDocumentDni;
+export default InputIdentityDocumentDni;
