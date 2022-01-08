@@ -3,7 +3,7 @@ import GenerateButton from "../Buttons/GenerateButton";
 import generatorIban from "../../Utils/generatorIban";
 import useGenerator from "../../Hooks/useGenerator";
 
-const InputIban = ({bankIban}) => {
+const InputIban = () => {
 
     let bankIbanValue = generatorIban();
 
