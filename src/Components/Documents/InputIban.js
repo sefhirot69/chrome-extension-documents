@@ -1,16 +1,19 @@
 import React, {useRef, useState} from 'react';
 import GenerateButton from "../Buttons/GenerateButton";
 import generatorIban from "../../Utils/generatorIban";
+import useGenerator from "../../Hooks/useGenerator";
 
 const InputIban = ({bankIban}) => {
 
-    const [iban, setIban] = useState(bankIban);
-    const inputIban = useRef(bankIban);
+    let bankIbanValue = generatorIban();
 
-    const generateIban = () => {
-        let iban = generatorIban();
-        setIban(iban);
-    };
+    const {value, setGenerateValue} = useGenerator(
+        {
+            initialValue: bankIbanValue,
+            callback: generatorIban
+        }
+    )
+    const inputIban = useRef(bankIbanValue);
 
     return <>
         <div className="input-group input-group-sm mb-3">
@@ -20,10 +23,11 @@ const InputIban = ({bankIban}) => {
                 className="form-control-sm"
                 placeholder="XXXXXXXXX"
                 name={"bank-iban"}
-                value={iban}
+                value={value}
                 ref={inputIban}
+                onChange={setGenerateValue}
             />
-            <GenerateButton callbackOnClick={generateIban}/>
+            <GenerateButton callbackOnClick={setGenerateValue}/>
         </div>
     </>
 };

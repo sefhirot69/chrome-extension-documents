@@ -1,15 +1,19 @@
 import React, {useRef, useState} from 'react';
 import generatorNie from "../../Utils/generatorNie";
 import GenerateButton from "../Buttons/GenerateButton";
+import useGenerator from "../../Hooks/useGenerator";
 
-const InputIdentityDocumentNie = ({documentNie}) => {
+const InputIdentityDocumentNie = () => {
 
-    const inputNie = useRef(null);
-    const [document, setDocument] = useState(documentNie);
+    let documentNieValue = generatorNie();
 
-    const generateDocument = () => {
-        setDocument(generatorNie());
-    }
+    const {value, setGenerateValue} = useGenerator(
+        {
+            initialValue: documentNieValue,
+            callback: generatorNie
+        }
+    )
+    const inputNie = useRef(documentNieValue);
 
     return <>
         <div className="input-group input-group-sm mb-3">
@@ -19,10 +23,11 @@ const InputIdentityDocumentNie = ({documentNie}) => {
                 className="form-control-sm"
                 placeholder="XXXXXXXXX"
                 name={"document-nie"}
-                value={document}
+                value={value}
                 ref={inputNie}
+                onChange={setGenerateValue}
             />
-            <GenerateButton callbackOnClick={generateDocument}/>
+            <GenerateButton callbackOnClick={setGenerateValue}/>
         </div>
     </>
 };

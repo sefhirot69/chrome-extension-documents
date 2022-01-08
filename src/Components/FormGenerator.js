@@ -8,14 +8,12 @@ import generatorIban from "../Utils/generatorIban";
 
 const FormGenerator = () => {
 
-    let documentDni = generatorDni();
-    let documentNie = generatorNie();
     let bankIban = generatorIban();
 
     return (
         <form>
-            <InputIdentityDocumentDni documentDni={documentDni}/>
-            <InputIdentityDocumentNie documentNie={documentNie}/>
+            <InputIdentityDocumentDni/>
+            <InputIdentityDocumentNie/>
             <InputIban bankIban={bankIban}/>
         </form>
     );

@@ -1,16 +1,18 @@
-import React, {useRef, useState} from 'react';
+import React, {createRef, useRef, useState} from 'react';
 import generatorDni from "../../Utils/generatorDni";
 import GenerateButton from "../Buttons/GenerateButton";
+import useGenerator from "../../Hooks/useGenerator";
 
-const InputIdentityDocumentDni = ({documentDni} ) => {
+const InputIdentityDocumentDni = () => {
 
-    const [document, setDocument] = useState(documentDni)
-    const inputDni = useRef(documentDni);
+    let documentDniValue = generatorDni();
+    const {value, setGenerateValue} = useGenerator(
+        {
+            initialValue: documentDniValue,
+            callback : generatorDni
+        })
 
-    const generateDocument = () => {
-        let document = generatorDni();
-        setDocument(document);
-    };
+    const inputDni = useRef(documentDniValue);
 
     return <>
 
@@ -21,10 +23,11 @@ const InputIdentityDocumentDni = ({documentDni} ) => {
                 className="form-control-sm"
                 placeholder="XXXXXXXXX"
                 name={"document-dni"}
-                value={document}
+                value={value}
                 ref={inputDni}
+                onChange={setGenerateValue}
             />
-            <GenerateButton callbackOnClick={generateDocument}/>
+            <GenerateButton callbackOnClick={setGenerateValue}/>
         </div>
     </>
 
