@@ -17,7 +17,7 @@ const InputIban = ({bankIban}) => {
             <span className="input-group-text">IBAN</span>
             <input
                 type="text"
-                className="form-control-sm col-sm-3"
+                className="form-control-sm"
                 placeholder="XXXXXXXXX"
                 name={"bank-iban"}
                 value={iban}
